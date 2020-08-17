@@ -1,0 +1,804 @@
+passed: 1 4 5 6 7 8 9 10 13 14 20
+
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_1.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier n
+tok_op 5
+tok_number 0
+tok_comma
+14
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_2.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier n
+tok_comma
+tok_identifier m
+tok_number 5
+tok_if
+tok_identifier n
+tok_op 9
+tok_number 0
+tok_op 1
+tok_identifier n
+tok_op 13
+tok_identifier m
+tok_op 3
+tok_number 1
+tok_then
+tok_number 7
+tok_number 6
+tok_exit
+tok_number 6
+tok_number 7
+tok_exit
+tok_identifier n
+tok_op 10
+tok_identifier m
+tok_number 8
+REM
+tok_eof
+linenum 4 to ins 1
+st: n = 0
+Instruction 1: ASM_INPUT n
+st: m = 0
+Instruction 2: ASM_INPUT m
+linenum 5 to ins 3
+st: inbuild_tmp1 = 0
+Instruction 3: ASM_DAYUDENGYUI inbuild_tmp1 n 0
+st: inbuild_tmp2 = 0
+Instruction 4: ASM_DIVIDE inbuild_tmp2 n m
+st: inbuild_tmp3 = 0
+Instruction 5: ASM_NOT_EQUALI inbuild_tmp3 inbuild_tmp2 1
+st: inbuild_tmp4 = 0
+Instruction 6: ASM_OR inbuild_tmp4 inbuild_tmp1 inbuild_tmp3
+Instruction 7: ASM_JMP_ONCOND 7 inbuild_tmp4
+linenum 6 to ins 8
+Instruction 8: ASM_EXIT_NUM 6
+linenum 7 to ins 9
+st: inbuild_tmp5 = 0
+Instruction 9: ASM_ADD inbuild_tmp5 n m
+Instruction 10: ASM_EXIT_ID inbuild_tmp5
+----------------------------------
+
+var inbuild_tmp1  @1028
+var inbuild_tmp2  @1032
+var inbuild_tmp3  @1036
+var inbuild_tmp4  @1040
+var inbuild_tmp5  @1044
+var m  @1048
+var n  @1052
+----------------------------------
+
+@00000000
+7F 01 00 00 FF 01 00 00 08 02 31 00 63 9A 02 00 13 05 60 00 33 03 31 00 33 05 60 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_3.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_if
+tok_number 2
+tok_op 8
+tok_number 1
+tok_then
+tok_number 10
+tok_number 5
+REM
+tok_number 6
+REM
+tok_number 9
+REM
+tok_number 10
+REM
+tok_number 11
+REM
+tok_eof
+linenum 4 to ins 1
+st: inbuild_tmp1 = 3
+Instruction 1: ASM_JMP_ONCOND 10 inbuild_tmp1
+----------------------------------
+
+var inbuild_tmp1  @1028
+----------------------------------
+
+@00000000
+63 10 01 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_4.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier x
+tok_comma
+tok_identifier y
+tok_number 5
+REM
+tok_number 6
+tok_let
+tok_identifier true
+tok_op 5
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier x
+tok_op 10
+tok_identifier y
+tok_youkuohao
+tok_op 12
+tok_zuokuohao
+tok_identifier x
+tok_op 11
+tok_identifier y
+tok_youkuohao
+tok_op 12
+tok_identifier y
+tok_op 11
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier x
+tok_op 11
+tok_identifier y
+tok_youkuohao
+tok_op 12
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier y
+tok_op 11
+tok_identifier x
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_number 7
+tok_let
+tok_identifier fail
+tok_op 5
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier x
+tok_op 11
+tok_identifier y
+tok_youkuohao
+tok_op 12
+tok_zuokuohao
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier x
+tok_op 10
+tok_identifier y
+tok_youkuohao
+tok_op 13
+tok_identifier x
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_youkuohao
+tok_number 8
+Error: expected )
+tok_exit
+tok_identifier true
+tok_eof
+linenum 4 to ins 1
+st: x = 0
+Instruction 1: ASM_INPUT x
+st: y = 0
+Instruction 2: ASM_INPUT y
+linenum 6 to ins 3
+st: inbuild_tmp1 = 0
+Instruction 3: ASM_ADD inbuild_tmp1 x y
+st: inbuild_tmp2 = 0
+Instruction 4: ASM_SUB inbuild_tmp2 x y
+st: inbuild_tmp3 = 0
+Instruction 5: ASM_MULTI inbuild_tmp3 inbuild_tmp1 inbuild_tmp2
+st: inbuild_tmp4 = 0
+Instruction 6: ASM_MULTI inbuild_tmp4 inbuild_tmp3 y
+st: inbuild_tmp5 = 0
+Instruction 7: ASM_SUB inbuild_tmp5 x y
+st: inbuild_tmp6 = 0
+Instruction 8: ASM_SUB inbuild_tmp6 y x
+st: inbuild_tmp7 = 0
+Instruction 9: ASM_MULTI inbuild_tmp7 inbuild_tmp5 inbuild_tmp6
+st: inbuild_tmp8 = 0
+Instruction 10: ASM_SUB inbuild_tmp8 inbuild_tmp4 inbuild_tmp7
+Instruction 11: ASM_LET_ID true inbuild_tmp8
+linenum 7 to ins 12
+Segmentation fault (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_5.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_let
+Error: unknown token when expecting an expression
+tok_op 5
+Error: unknown token when expecting an expression
+3
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_6.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier array
+tok_op 5
+tok_identifier INT
+tok_op -921778944
+3
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_7.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier a
+tok_op 5
+tok_number 45
+tok_number 5
+tok_let
+tok_identifier b
+tok_op 5
+tok_identifier a
+tok_op 1792691200
+3
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_8.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier m
+tok_number 5
+tok_let
+tok_identifier n
+tok_op 5
+tok_identifier INT
+tok_op -1605613312
+3
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_9.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier m
+tok_comma
+tok_identifier n
+tok_number 5
+tok_exit
+tok_eof
+Error: unknown token when expecting an expression
+linenum 4 to ins 1
+st: m = 0
+Instruction 1: ASM_INPUT m
+st: n = 0
+Instruction 2: ASM_INPUT n
+linenum 5 to ins 3
+Segmentation fault (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_10.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_identifier n
+terminate called after throwing an instance of 'unknownstatement'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_11.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier N
+tok_op 5
+tok_zuokuohao
+tok_number 10
+tok_youkuohao
+tok_number 5
+tok_input
+tok_identifier M
+tok_number 6
+tok_let
+tok_identifier N
+tok_op 5
+tok_zuokuohao
+tok_identifier M
+tok_youkuohao
+tok_op 10
+tok_zuokuohao
+tok_identifier N
+tok_youkuohao
+tok_number 7
+tok_exit
+tok_identifier N
+tok_eof
+linenum 4 to ins 1
+Instruction 1: ASM_LET_NUM N 10
+linenum 5 to ins 2
+st: M = 0
+Instruction 2: ASM_INPUT M
+linenum 6 to ins 3
+st: inbuild_tmp1 = 0
+Instruction 3: ASM_ADD inbuild_tmp1 M N
+Instruction 4: ASM_LET_ID N inbuild_tmp1
+linenum 7 to ins 5
+Instruction 5: ASM_EXIT_ID N
+----------------------------------
+
+var M  @1028
+var inbuild_tmp1  @1032
+----------------------------------
+
+@00000000
+13 01 A0 00 FF 01 00 00 33 82 21 00 13 01 02 00 33 05 20 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_12.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier a
+tok_number 5
+tok_let
+tok_zuokuohao
+tok_identifier a
+tok_youkuohao
+tok_op 5
+tok_identifier a
+tok_op 10
+tok_number 2
+tok_number 6
+tok_exit
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier a
+tok_youkuohao
+tok_youkuohao
+tok_eof
+linenum 4 to ins 1
+st: a = 0
+Instruction 1: ASM_INPUT a
+linenum 5 to ins 2
+st: inbuild_tmp1 = 0
+Instruction 2: ASM_ADDI inbuild_tmp1 a 2
+Instruction 3: ASM_LET_ID a inbuild_tmp1
+linenum 6 to ins 4
+Instruction 4: ASM_EXIT_ID a
+----------------------------------
+
+var a  @1028
+var inbuild_tmp1  @1032
+----------------------------------
+
+@00000000
+7F 01 00 00 93 01 21 00 13 81 01 00 33 05 20 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_13.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 0
+tok_number 5
+tok_for
+tok_identifier i
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_fenhao
+tok_identifier i
+tok_op 6
+tok_number 10
+tok_number 6
+tok_endfor
+tok_number 7
+tok_endfor
+terminate called after throwing an instance of 'unknownstatement'
+Aborted (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_14.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 0
+tok_number 5
+tok_for
+tok_identifier i
+tok_op 6
+tok_number 10
+tok_fenhao
+tok_identifier i
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_number 6
+tok_let
+tok_identifier i
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 2
+tok_number 7
+tok_endfor
+tok_number 8
+tok_exit
+tok_identifier i
+tok_eof
+linenum 4 to ins 1
+Instruction 1: ASM_LET_NUM i 0
+linenum 5 to ins 2
+st: inbuild_tmp1 = 0
+Instruction 2: ASM_ADDI inbuild_tmp1 i 1
+Instruction 3: ASM_JMP_NOTONCOND 8 inbuild_tmp1
+linenum 6 to ins 4
+st: inbuild_tmp2 = 0
+Instruction 4: ASM_ADDI inbuild_tmp2 i 2
+Instruction 5: ASM_LET_ID i inbuild_tmp2
+linenum -1 to ins 6
+Segmentation fault (core dumped)
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_15.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 0
+tok_number 5
+tok_let
+tok_identifier j
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_number 6
+tok_exit
+tok_identifier k
+tok_eof
+linenum 4 to ins 1
+Instruction 1: ASM_LET_NUM i 0
+linenum 5 to ins 2
+st: inbuild_tmp1 = 0
+Instruction 2: ASM_ADDI inbuild_tmp1 i 1
+Instruction 3: ASM_LET_ID j inbuild_tmp1
+linenum 6 to ins 4
+Instruction 4: ASM_EXIT_ID k
+----------------------------------
+
+var inbuild_tmp1  @1028
+----------------------------------
+
+@00000000
+13 01 00 00 93 01 11 00 13 82 01 00 33 05 50 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_16.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_exit
+tok_identifier i
+tok_number 5
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 0
+tok_number 6
+tok_let
+tok_identifier j
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_number 7
+REM
+tok_eof
+linenum 4 to ins 1
+Instruction 1: ASM_EXIT_ID i
+linenum 5 to ins 2
+Instruction 2: ASM_LET_NUM i 0
+linenum 6 to ins 3
+st: inbuild_tmp1 = 0
+Instruction 3: ASM_ADDI inbuild_tmp1 i 1
+Instruction 4: ASM_LET_ID j inbuild_tmp1
+----------------------------------
+
+var inbuild_tmp1  @1028
+----------------------------------
+
+@00000000
+33 05 20 00 13 01 00 00 93 01 11 00 13 82 01 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_17.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_exit
+tok_number 0
+tok_number 5
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 0
+tok_number 6
+tok_let
+tok_identifier j
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_number 7
+REM
+tok_eof
+linenum 4 to ins 1
+Instruction 1: ASM_EXIT_NUM 0
+linenum 5 to ins 2
+Instruction 2: ASM_LET_NUM i 0
+linenum 6 to ins 3
+st: inbuild_tmp1 = 0
+Instruction 3: ASM_ADDI inbuild_tmp1 i 1
+Instruction 4: ASM_LET_ID j inbuild_tmp1
+----------------------------------
+
+var inbuild_tmp1  @1028
+----------------------------------
+
+@00000000
+13 05 00 00 13 01 00 00 93 01 11 00 13 82 01 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_18.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier n
+tok_number 5
+tok_let
+tok_identifier i
+tok_op 5
+tok_number 1
+tok_number 6
+tok_let
+tok_identifier sum
+tok_op 5
+tok_number 0
+tok_number 7
+tok_for
+tok_identifier i
+tok_op 5
+tok_identifier i
+tok_op 10
+tok_number 1
+tok_fenhao
+tok_identifier i
+tok_op 6
+tok_identifier ntt
+tok_number 8
+tok_let
+tok_identifier sum
+tok_op 5
+tok_identifier sum
+tok_op 10
+tok_identifier i
+tok_number 9
+tok_endfor
+tok_number 10
+tok_exit
+tok_identifier sum
+tok_eof
+linenum 4 to ins 1
+st: n = 0
+Instruction 1: ASM_INPUT n
+linenum 5 to ins 2
+Instruction 2: ASM_LET_NUM i 1
+linenum 6 to ins 3
+Instruction 3: ASM_LET_NUM sum 0
+linenum 7 to ins 4
+st: inbuild_tmp1 = 0
+Instruction 4: ASM_XIAOYU inbuild_tmp1 i ntt
+Instruction 5: ASM_JMP_NOTONCOND 10 inbuild_tmp1
+linenum 8 to ins 6
+st: inbuild_tmp2 = 0
+Instruction 6: ASM_ADD inbuild_tmp2 sum i
+Instruction 7: ASM_LET_ID sum inbuild_tmp2
+linenum -1 to ins 8
+st: inbuild_tmp3 = 0
+Instruction 8: ASM_ADDI inbuild_tmp3 i 1
+Instruction 9: ASM_LET_ID i inbuild_tmp3
+Instruction 10: ASM_GOTO 7
+linenum 10 to ins 11
+Instruction 11: ASM_EXIT_ID sum
+----------------------------------
+
+var inbuild_tmp1  @1028
+var inbuild_tmp2  @1032
+var inbuild_tmp3  @1036
+var n  @1040
+----------------------------------
+
+@00000000
+7F 01 00 00 93 01 10 00 13 02 00 00 B3 A2 61 00 B3 03 32 00 13 82 03 00 13 84 11 00 93 01 04 00 67 00 C0 00 33 05 40 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_19.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+REM
+tok_number 5
+tok_input
+tok_identifier n
+tok_number 7
+tok_if
+tok_identifier n
+tok_op 8
+tok_number 5
+tok_then
+tok_number 12
+tok_number 8
+tok_let
+tok_identifier n
+tok_op 5
+tok_number 5
+tok_number 10
+tok_exit
+tok_identifier n
+tok_number 11
+tok_goto
+tok_number 10
+tok_eof
+linenum 5 to ins 1
+st: n = 0
+Instruction 1: ASM_INPUT n
+linenum 7 to ins 2
+st: inbuild_tmp1 = 0
+Instruction 2: ASM_DAYUI inbuild_tmp1 n 5
+Instruction 3: ASM_JMP_ONCOND 12 inbuild_tmp1
+linenum 8 to ins 4
+Instruction 4: ASM_LET_NUM n 5
+linenum 10 to ins 5
+Instruction 5: ASM_EXIT_ID n
+linenum 11 to ins 6
+Instruction 6: ASM_GOTO 10
+----------------------------------
+
+var inbuild_tmp1  @1028
+var n  @1032
+----------------------------------
+
+@00000000
+7F 01 00 00 63 90 01 00 13 01 50 00 33 05 20 00 67 00 C0 00 13 05 F0 0F
+cong@cong-3700x:/mnt/d/basic_compiler$ ./code < sema_20.txt
+tok_number 1
+REM
+tok_number 2
+REM
+tok_number 3
+REM
+tok_number 4
+tok_input
+tok_identifier x
+tok_comma
+tok_identifier y
+tok_number 5
+tok_if
+tok_zuokuohao
+tok_zuokuohao
+tok_identifier x
+tok_op 6
+tok_identifier y
+tok_youkuohao
+tok_op 2
+tok_zuokuohao
+tok_identifier x
+tok_op 10
+tok_number 5
+expected !=
+tok_op -874420696
+Error: expected )
+expected !=
+tok_op -874420224
+Error: unknown token when expecting an expression
+3
+Expecting linenum!
+terminate called after throwing an instance of 'linenumerror'
+Aborted (core dumped)
